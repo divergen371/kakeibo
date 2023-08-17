@@ -8,4 +8,8 @@ class BooksController < ApplicationController
       params[:id]
     )
   end
+
+  def new
+    @book = Book.new
+  end
 end
