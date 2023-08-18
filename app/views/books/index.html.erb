@@ -1,22 +1,23 @@
 <h1>家計簿</h1>
 <%= link_to "新規登録", new_book_path, class:" btn btn-primary" %>
 <table class="table table-striped">
-<tr>
+  <tr>
     <th>年月</th>
     <th>区分</th>
     <th>科目</th>
     <th>金額</th>
     <th>リンク</th>
-</tr>
-<% @books.each do | book| %>
-<tr>
-    <td><%= book.year %>年<%= book.month %>月</td>
-    <td><%= book.inout %></td>
-    <td><%= book.category %></td>
-    <td><%= book.amount %></td>
-    <td>
+  </tr>
+  <% @books.each do | book| %>
+    <tr>
+      <td><%= book.year %>年<%= book.month %>月</td>
+      <td><%= book.inout %></td>
+      <td><%= book.category %></td>
+      <td><%= book.amount %></td>
+      <td>
         <%= link_to "詳細", book_path(book), class: "btn btn-info" %>
-    </td>
-</tr>
-<% end %>
+        <%= link_to "編集", edit_book_path(book), class: "btn btn-warning" %>
+      </td>
+    </tr>
+  <% end %>
 </table>
