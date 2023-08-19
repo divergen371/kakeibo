@@ -26,6 +26,8 @@
     <th>リンク</th>
   </tr>
   <% sum = 0 %>
+  <% income = 0 %>
+  <% expenditure= 0 %>
   <% inout = ""%>
   <% @books.each do | book| %>
     <%if book.inout == 1 %>
@@ -46,14 +48,30 @@
     </tr>
     <% if book.inout == 1 %>
       <% sum += book.amount %>
+      <% income += book.amount%>
     <% else %>
       <% sum -= book.amount %>
+      <% expenditure += book.amount %>
     <%end%>
   <% end %>
   <tr>
     <td></td>
     <td></td>
-    <td>合計</td>
+    <td>収入合計</td>
+    <td><%= income %>万円</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>支出合計</td>
+    <td><%= expenditure %>万円</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>収支</td>
     <td><%= sum %>万円</td>
     <td></td>
   </tr>
